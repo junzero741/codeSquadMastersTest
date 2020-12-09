@@ -1,7 +1,7 @@
 # 1단계: 단어 밀어내기 코드 구현
 
 
-## 코드 실행 화면 : 
+## 실행 화면 : 
 https://codepen.io/junzero741/pen/PoGGbeq
 
 </br></br>
