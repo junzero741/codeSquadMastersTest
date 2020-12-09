@@ -77,9 +77,17 @@ function moveCube(i) {
     }
 }
 
+function renderCube(text) {
+    const newCube = document.createElement("div");
+    newCube.className = "rectangle";
+    newCube.innerHTML = `${text} <br> ${cube[0]} <br> ${cube[1]} <br> ${cube[2]}`; 
+    document.body.appendChild(newCube);
+}
+
 
 function handleEvent() {
     button.addEventListener("click", mergeSingleQuote);
+    button.addEventListener("click", checkInput);
 }
 
 function init() {
