@@ -11,10 +11,14 @@ function setInput() {
      direction = textArr[2];
      textArr[1] = Number(textArr[1]);
      num = textArr[1];
-     if (num < 0) {
-         num = Math.abs(num);
-         direction = changeDirection(direction);
-     }
+     checkMinus();
+}
+
+function checkMinus() {
+    if (num < 0) {
+        num = Math.abs(num);
+        direction = changeDirection(direction);
+    }
 }
 
 function changeDirection(text) {
