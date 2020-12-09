@@ -18,9 +18,21 @@ function setInput() {
      num = textArr[1];
      if (num < 0) {
          num = Math.abs(num);
-         direction = ChangeDirection(direction);
+         direction = changeDirection(direction);
      }
 }
+
+function changeDirection(text) {
+    if (text === "L" || text === "l") {
+        text = "R";
+    }
+    if (text === "R" || text === "r") {
+        text = "L";
+    }
+
+    return text;
+}
+
 
 function init() {
     setInput();
