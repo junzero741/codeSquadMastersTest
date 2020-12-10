@@ -122,6 +122,28 @@ function createEmptyMatrix(len) {
     return result;
 }
 
+function renderCube(text) {
+    const newCubeTop = document.createElement("div") , newCubeFront = document.createElement("div");
+    const newCubeLeft = document.createElement("div"), newCubeRight = document.createElement("div");
+    const newCubeBack = document.createElement("div"), newCubeBottom = document.createElement("div");
+    newCubeTop.className = "canvasTop";
+    newCubeFront.className = "canvasFront";
+    newCubeLeft.className = "canvasLeft";
+    newCubeRight.className = "canvasRight";
+    newCubeBack.className = "canvasBack";
+    newCubeBottom.className = "canvasBottom";
+    newCubeTop.innerHTML = `${text} <br> ${cubeTop[0]} <br> ${cubeTop[1]} <br> ${cubeTop[2]} <br>`; 
+    newCubeLeft.innerHTML = `${cubeLeft[0]} <br> ${cubeLeft[1]} <br> ${cubeLeft[2]} `; 
+    newCubeFront.innerHTML = `${cubeFront[0]} <br> ${cubeFront[1]} <br> ${cubeFront[2]} `; 
+    newCubeRight.innerHTML = `${cubeRight[0]} <br> ${cubeRight[1]} <br> ${cubeRight[2]} `; 
+    newCubeBack.innerHTML = `${cubeBack[0]} <br> ${cubeBack[1]} <br> ${cubeBack[2]} `; 
+    newCubeBottom.innerHTML = `${cubeBottom[0]} <br> ${cubeBottom[1]} <br> ${cubeBottom[2]}  `; 
+    const newCubeFaces = [newCubeTop, newCubeLeft, newCubeFront, newCubeRight, newCubeBack, newCubeBottom];
+    for(let i = 0; i < newCubeFaces.length; i++) {
+        document.body.appendChild(newCubeFaces[i]);   
+    } 
+}
+
 
 
 function mergeSingleQuote() {
@@ -144,6 +166,8 @@ function checkInput() {
     }
     console.log(inputArray);
 }
+
+
 
 
 function handleEvent() {
