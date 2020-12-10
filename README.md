@@ -14,7 +14,7 @@ https://codepen.io/junzero741/pen/PoGGbeq
   
   </br></br>
   ## setInput() 
-  입력받은 문자열을 textArr 배열에 세 구간으로 나누는 일을 한다. wordArr은 textArr의 [0]에 저장된 영단어를 한 글자씩 쪼개서 담는 배열이고, direction은 방향을, num은 숫자를 담는다.
+  입력받은 문자열을 inputArray 배열에 세 구간으로 나누는 일을 한다. wordArr은 inputArr의 [0]에 저장된 영단어를 한 글자씩 쪼개서 담는 배열이고, direction은 방향을, num은 숫자를 담는다.
    
   </br></br>
   ## checkMinus()
