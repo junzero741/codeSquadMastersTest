@@ -40,3 +40,17 @@ function drawInitCube() {
     canvasBack.innerHTML = `${cubeBack[0]} <br> ${cubeBack[1]} <br> ${cubeBack[2]} `;
     canvasBottom.innerHTML = `${cubeBottom[0]} <br> ${cubeBottom[1]} <br> ${cubeBottom[2]} `;
 }
+
+function handleEvent() {
+    button.addEventListener("click", mergeSingleQuote);
+}
+
+
+
+function init() {
+    drawInitCube();
+    handleEvent();
+}
+
+
+init();
