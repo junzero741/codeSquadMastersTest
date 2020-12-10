@@ -65,6 +65,13 @@ function mergeSingleQuote() {
     }
 }
 
+function checkInput() {
+    for(let i =0; i < inputArray.length; i++) {
+        moveCube(i);
+    }
+    console.log(inputArray);
+}
+
 
 function handleEvent() {
     button.addEventListener("click", mergeSingleQuote);
