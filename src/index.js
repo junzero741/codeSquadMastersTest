@@ -32,7 +32,7 @@ let cubeBottom = [["R", "R", "R"],
 ["R", "R", "R"]];
 
 let inputArray = [];
-
+let submitCount = 0;
 
 function drawInitCube() {
     canvasTop.innerHTML = `${cubeTop[0]} <br> ${cubeTop[1]} <br> ${cubeTop[2]} <br>`;
@@ -59,6 +59,17 @@ function moveCube(i) {
     rotateByBQuote(i);
     endCube(i);
 }
+
+function endCube(i) {
+    if(inputArray[i] === "Q") {
+        renderBye();
+    }
+}
+
+function renderBye() {
+    document.write(`조작갯수 : ${submitCount} <br> 이용해주셔서 감사합니다. 뚜뚜뚜.`);
+}
+
 
 function rotateByU(i) {
     if(inputArray[i] === "U") {
@@ -349,7 +360,7 @@ function rotateBack90() {
      cubeBottom[2].push(tempArrayLeft[i]);
     }
  }
- 
+
  function rotateByBQuote(i) {
     if(inputArray[i] === "B`") {
         cubeBack = rotateCounter90(cubeBack);
@@ -378,9 +389,6 @@ function rotateBack90() {
        cubeBottom[2].push(tempArrayRight[i]);
       }
 }
-
-
-
 
 
 function rotate90(matrix) {
@@ -468,6 +476,7 @@ function checkInput() {
         moveCube(i);
     }
     console.log(inputArray);
+    submitCount += inputArray.length;
 }
 
 
