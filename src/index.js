@@ -7,26 +7,36 @@ const canvasTop = document.querySelector(".canvasTop"),
     input = document.getElementById("input"),
     button = document.getElementById("button");
 
-let cubeTop =   [["B","B","B"], 
-                 ["B","B","B"],
-                 ["B","B","B"]];
+let cubeTop = [["B", "B", "B"],
+["B", "B", "B"],
+["B", "B", "B"]];
 
-let cubeLeft =  [["W","W","W"], 
-                ["W","W","W"],
-                ["W","W","W"]];
-            
-let cubeFront = [["O","O","O"], 
-                ["O","O","O"],
-                ["O","O","O"]];
-                
-let cubeRight = [["G","G","G"], 
-                ["G","G","G"],
-                ["G","G","G"]];
+let cubeLeft = [["W", "W", "W"],
+["W", "W", "W"],
+["W", "W", "W"]];
 
-let cubeBack = [["Y","Y","Y"], 
-                ["Y","Y","Y"],
-                ["Y","Y","Y"]];
+let cubeFront = [["O", "O", "O"],
+["O", "O", "O"],
+["O", "O", "O"]];
 
-let cubeBottom =[["R","R","R"], 
-                ["R","R","R"],
-                ["R","R","R"]];
+let cubeRight = [["G", "G", "G"],
+["G", "G", "G"],
+["G", "G", "G"]];
+
+let cubeBack = [["Y", "Y", "Y"],
+["Y", "Y", "Y"],
+["Y", "Y", "Y"]];
+
+let cubeBottom = [["R", "R", "R"],
+["R", "R", "R"],
+["R", "R", "R"]];
+
+
+function drawInitCube() {
+    canvasTop.innerHTML = `${cubeTop[0]} <br> ${cubeTop[1]} <br> ${cubeTop[2]} <br>`;
+    canvasLeft.innerHTML = `${cubeLeft[0]} <br> ${cubeLeft[1]} <br> ${cubeLeft[2]} `;
+    canvasFront.innerHTML = `${cubeFront[0]} <br> ${cubeFront[1]} <br> ${cubeFront[2]} `;
+    canvasRight.innerHTML = `${cubeRight[0]} <br> ${cubeRight[1]} <br> ${cubeRight[2]} `;
+    canvasBack.innerHTML = `${cubeBack[0]} <br> ${cubeBack[1]} <br> ${cubeBack[2]} `;
+    canvasBottom.innerHTML = `${cubeBottom[0]} <br> ${cubeBottom[1]} <br> ${cubeBottom[2]} `;
+}
