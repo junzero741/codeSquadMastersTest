@@ -68,6 +68,19 @@ function rotate90(matrix) {
     return matrix;
 }
 
+function rotateCounter90(matrix) {
+    let result = createEmptyMatrix(matrix.length);
+    matrix = transpose(matrix);
+    let counter = 0;
+
+    for (let i = matrix.length - 1; i >= 0; i--) {
+        result[counter] = matrix[i];
+        counter++;
+    }
+    return result;
+}
+
+
 function transpose(matrix) {
     let len = matrix.length;
     let result = createEmptyMatrix(len);
@@ -83,7 +96,7 @@ function transpose(matrix) {
 
 function createEmptyMatrix(len) {
     let result = new Array();
-    for(let i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
         result.push([]);
     }
     return result;
