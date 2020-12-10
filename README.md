@@ -22,12 +22,16 @@ https://codepen.io/junzero741/pen/ZEppKWe
  </br></br>
   ## moveCube(i)
   * i는 0에서부터 inputArray 의 길이 직전까지 늘어난다.
-  * inputArray 의 i 번째 원소에 따라 각기 다른 큐브 이동 로직을 갖고, renderCube(text) 함수를 실행시킨다.
-  * inputArray 의 원소 중 "Q"가 있으면 프로그램을 종료하고 "BYE" 를 출력한다.
+  * rotateUp(i) ~ endCube(i) 함수들을 실행하는 중앙 통제 함수이다.
+
+  </br></br>
+  ## rotate Up, Bottom, Left, Right, UpCounter, ...
+  * moveCube(i) 함수에 의해 실행되는 함수들이다.
+  * i 의 값에 따라 2차원 배열 큐브를 배열 메소드로 붙였다 뗐다 한다.
+  * 큐브가 회전할 때마다 renderCube(i) 함수를 실행한다.
    </br></br>
   ## renderCube(text)
   * document 객체에 div 태그를 갖는 새로운 상수 newCube 를 생성한다.
-  * newCube에 "rectangle" 클래스 이름을 부여한다. (CSS 적용을 위해)
   * newCube 의 내부를 moveCube로 이동한 2차원 배열 큐브로 채운다. (큐브 위에는 입력한 text 표시)
   </br></br>
   ## handleEvent
