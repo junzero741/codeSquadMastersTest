@@ -7,8 +7,6 @@ const canvasTop = document.querySelector(".canvasTop"),
     input = document.getElementById("input"),
     button = document.getElementById("button");
 
-let inputArray = [];
-
 let cubeTop = [["B", "B", "B"],
 ["B", "B", "B"],
 ["B", "B", "B"]];
@@ -33,6 +31,7 @@ let cubeBottom = [["R", "R", "R"],
 ["R", "R", "R"],
 ["R", "R", "R"]];
 
+let inputArray = [];
 
 
 function drawInitCube() {
@@ -42,6 +41,23 @@ function drawInitCube() {
     canvasRight.innerHTML = `${cubeRight[0]} <br> ${cubeRight[1]} <br> ${cubeRight[2]} `;
     canvasBack.innerHTML = `${cubeBack[0]} <br> ${cubeBack[1]} <br> ${cubeBack[2]} `;
     canvasBottom.innerHTML = `${cubeBottom[0]} <br> ${cubeBottom[1]} <br> ${cubeBottom[2]} `;
+}
+
+
+function moveCube(i) {
+    rotateByU(i);
+    rotateByUQuote(i);
+    rotateByD(i);
+    rotateByDQuote(i);
+    rotateByL(i);
+    rotateByLQuote(i);
+    rotateByR(i);
+    rotateByRQuote(i);
+    rotateByF(i);
+    rotateByFQuote(i);
+    rotateByB(i);
+    rotateByBQuote(i);
+    endCube(i);
 }
 
 
