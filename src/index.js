@@ -60,6 +60,26 @@ function moveCube(i) {
     endCube(i);
 }
 
+function rotateByU(i) {
+    if(inputArray[i] === "U") {
+        cubeTop = rotate90(cubeTop);
+        rotateTop90();
+        renderCube("U");
+    }
+}
+
+function rotateTop90() {
+    const tempArray1 = cubeFront.shift();
+    const tempArray2 = cubeLeft.shift();
+    const tempArray3 = cubeBack.shift();
+    const tempArray4 = cubeRight.shift();
+    cubeFront.unshift(tempArray4);
+    cubeLeft.unshift(tempArray1);
+    cubeBack.unshift(tempArray2);
+    cubeRight.unshift(tempArray3);
+}
+
+
 function rotate90(matrix) {
     matrix = transpose(matrix);
     matrix.map(function (array) {
