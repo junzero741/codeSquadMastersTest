@@ -118,6 +118,25 @@ function rotateBottom90() {
 }
 
 
+function rotateByDQuote(i) {
+    if(inputArray[i] === "D`") {
+        cubeBottom = rotateCounter90(cubeBottom);
+        rotateBottomCounter90();
+        renderCube("D`");
+    }  
+}
+
+function rotateBottomCounter90() {
+    const tempArray1 = cubeFront.pop();
+    const tempArray2 = cubeLeft.pop();
+    const tempArray3 = cubeBack.pop();
+    const tempArray4 = cubeRight.pop();
+    cubeFront.push(tempArray4);
+    cubeLeft.push(tempArray1);
+    cubeBack.push(tempArray2);
+    cubeRight.push(tempArray3);
+}
+
 
 function rotate90(matrix) {
     matrix = transpose(matrix);
