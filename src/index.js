@@ -7,6 +7,8 @@ const canvasTop = document.querySelector(".canvasTop"),
     input = document.getElementById("input"),
     button = document.getElementById("button");
 
+let inputArray = [];
+
 let cubeTop = [["B", "B", "B"],
 ["B", "B", "B"],
 ["B", "B", "B"]];
@@ -32,7 +34,7 @@ let cubeBottom = [["R", "R", "R"],
 ["R", "R", "R"]];
 
 function checkInput() {
-    for(let i =0; i < inputArray.length; i++) {
+    for (let i = 0; i < inputArray.length; i++) {
         moveCube(i);
     }
     console.log(inputArray);
@@ -47,6 +49,22 @@ function drawInitCube() {
     canvasBack.innerHTML = `${cubeBack[0]} <br> ${cubeBack[1]} <br> ${cubeBack[2]} `;
     canvasBottom.innerHTML = `${cubeBottom[0]} <br> ${cubeBottom[1]} <br> ${cubeBottom[2]} `;
 }
+
+
+function mergeSingleQuote() {
+    const inputText = input.value;
+    inputArray = inputText.split("");
+    for (let i = 0; i < inputArray.length; i++) {
+        if (inputArray[i] === "`") {
+            inputArray[i - 1] = inputArray[i - 1] + "`";
+            inputArray.splice(i, 1);
+        }
+        if (inputArray[i] === "2") {
+            inputArray[i] = inputArray[i - 1];
+        }
+    }
+}
+
 
 function handleEvent() {
     button.addEventListener("click", mergeSingleQuote);
