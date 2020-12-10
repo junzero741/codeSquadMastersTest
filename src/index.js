@@ -20,7 +20,6 @@ function mergeSingleQuote() {
     console.log(inputArray);
 } 
 
-
 function checkInput() {
     for(let i=0; i < inputArray.length; i++) {
         moveCube(i)
@@ -28,22 +27,46 @@ function checkInput() {
 }
 
 function moveCube(i) {
+    rotateUp(i);
+    rotateUpCounter(i);
+    rotateBottom(i);
+    rotateBottomCounter(i);
+    rotateRight(i);
+    rotateRightCounter(i);
+    rotateLeft(i);
+    rotateLeftCounter(i);
+    endCube(i);
+}
+
+function rotateUp(i) {
     if(inputArray[i] === "U") {
         cube[0].push(cube[0].shift());
         renderCube("U");
     }
+}
+
+function rotateUpCounter(i) {
     if(inputArray[i] === "U`") {
         cube[0].unshift(cube[0].pop());
         renderCube("U`");
     }
+}
+
+function rotateBottom(i) {
     if(inputArray[i] === "B") {
         cube[2].unshift(cube[2].pop());
         renderCube("B`");
     }
+}
+
+function rotateBottomCounter(i) {
     if(inputArray[i] === "B`") {
         cube[2].push(cube[2].shift());
         renderCube("B");
     }
+}
+
+function rotateRight(i) {
     if(inputArray[i] === "R") {
         const temp = cube[0].pop();
         cube[0].push(cube[1].pop());
@@ -51,6 +74,9 @@ function moveCube(i) {
         cube[2].push(temp);
         renderCube("R");
     }
+}
+
+function rotateRightCounter(i) {
     if(inputArray[i] === "R`") {
         const temp = cube[2].pop();
         cube[2].push(cube[1].pop());
@@ -58,6 +84,9 @@ function moveCube(i) {
         cube[0].push(temp);
         renderCube("R`");
     }
+}
+
+function rotateLeft(i) {
     if(inputArray[i] === "L") {
         const temp = cube[2].shift();
         cube[2].unshift(cube[1].shift());
@@ -65,6 +94,9 @@ function moveCube(i) {
         cube[0].unshift(temp);
         renderCube("L");
     }
+}
+
+function rotateLeftCounter(i) {
     if(inputArray[i] === "L`") {
         const temp = cube[0].shift();
         cube[0].unshift(cube[1].shift());
@@ -72,6 +104,9 @@ function moveCube(i) {
         cube[2].unshift(temp);
         renderCube("L`");
     }
+}
+
+function endCube(i) {
     if(inputArray[i] === "Q") {
         document.write("BYE~");
     }
@@ -83,7 +118,6 @@ function renderCube(text) {
     newCube.innerHTML = `${text} <br> ${cube[0]} <br> ${cube[1]} <br> ${cube[2]}`; 
     document.body.appendChild(newCube);
 }
-
 
 function handleEvent() {
     button.addEventListener("click", mergeSingleQuote);
