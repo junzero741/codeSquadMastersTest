@@ -31,6 +31,13 @@ let cubeBottom = [["R", "R", "R"],
 ["R", "R", "R"],
 ["R", "R", "R"]];
 
+function checkInput() {
+    for(let i =0; i < inputArray.length; i++) {
+        moveCube(i);
+    }
+    console.log(inputArray);
+}
+
 
 function drawInitCube() {
     canvasTop.innerHTML = `${cubeTop[0]} <br> ${cubeTop[1]} <br> ${cubeTop[2]} <br>`;
@@ -43,6 +50,7 @@ function drawInitCube() {
 
 function handleEvent() {
     button.addEventListener("click", mergeSingleQuote);
+    button.addEventListener("click", checkInput);
 }
 
 
