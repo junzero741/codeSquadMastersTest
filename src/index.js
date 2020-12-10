@@ -55,14 +55,14 @@ function rotateUpCounter(i) {
 function rotateBottom(i) {
     if(inputArray[i] === "B") {
         cube[2].unshift(cube[2].pop());
-        renderCube("B`");
+        renderCube("B");
     }
 }
 
 function rotateBottomCounter(i) {
     if(inputArray[i] === "B`") {
         cube[2].push(cube[2].shift());
-        renderCube("B");
+        renderCube("B`");
     }
 }
 
