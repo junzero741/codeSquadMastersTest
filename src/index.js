@@ -288,6 +288,39 @@ function rotateFront90() {
     }
 }
 
+function rotateByFQuote(i) {
+    if(inputArray[i] === "F`") {
+        cubeFront = rotateCounter90(cubeFront);
+        rotateFrontCounter90();
+        renderCube("F`");
+    }
+}
+
+
+function rotateFrontCounter90() {
+    // 배열 만들기
+    let tempArrayTop = [];
+    let tempArrayBottom = [];
+    let tempArrayLeft = [];
+    let tempArrayRight = [];
+
+    for(let i = 0; i < 3; i++) {
+        tempArrayTop.push(cubeTop[2].pop());
+        tempArrayLeft.push(cubeLeft[i].pop());
+        tempArrayRight.push(cubeRight[i].shift());
+        tempArrayBottom.push(cubeBottom[0].pop());
+    }
+
+    // 배열 집어넣기
+    for(let i = 2; i >= 0; i--) {
+       cubeTop[2].unshift(tempArrayRight[i]);
+       cubeRight[i].unshift(tempArrayBottom[i]);
+       cubeLeft[i].push(tempArrayTop[i]);
+       cubeBottom[0].unshift(tempArrayLeft[i]);
+   }
+}
+
+
 function rotate90(matrix) {
     matrix = transpose(matrix);
     matrix.map(function (array) {
