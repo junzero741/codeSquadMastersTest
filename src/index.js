@@ -79,6 +79,25 @@ function rotateTop90() {
     cubeRight.unshift(tempArray3);
 }
 
+function rotateByUQuote(i) {
+    if(inputArray[i] === "U`") {
+        cubeTop = rotateCounter90(cubeTop);
+        rotateTopCounter90();
+        renderCube("U`");
+    } 
+}
+
+function rotateTopCounter90() {
+    const tempArray1 = cubeFront.shift();
+    const tempArray2 = cubeLeft.shift();
+    const tempArray3 = cubeBack.shift();
+    const tempArray4 = cubeRight.shift();
+    cubeFront.unshift(tempArray2);
+    cubeLeft.unshift(tempArray3);
+    cubeBack.unshift(tempArray4);
+    cubeRight.unshift(tempArray1);
+}
+
 
 function rotate90(matrix) {
     matrix = transpose(matrix);
