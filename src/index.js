@@ -8,28 +8,28 @@ const canvasTop = document.querySelector(".canvasTop"),
     button = document.getElementById("button");
 
 let cubeTop = [["B", "B", "B"],
-["B", "B", "B"],
-["B", "B", "B"]];
+                ["B", "B", "B"],
+                ["B", "B", "B"]];
 
 let cubeLeft = [["W", "W", "W"],
-["W", "W", "W"],
-["W", "W", "W"]];
+                ["W", "W", "W"],
+                ["W", "W", "W"]];
 
 let cubeFront = [["O", "O", "O"],
-["O", "O", "O"],
-["O", "O", "O"]];
+                ["O", "O", "O"],
+                ["O", "O", "O"]];
 
 let cubeRight = [["G", "G", "G"],
-["G", "G", "G"],
-["G", "G", "G"]];
+                ["G", "G", "G"],
+                ["G", "G", "G"]];
 
 let cubeBack = [["Y", "Y", "Y"],
-["Y", "Y", "Y"],
-["Y", "Y", "Y"]];
+                ["Y", "Y", "Y"],
+                ["Y", "Y", "Y"]];
 
 let cubeBottom = [["R", "R", "R"],
-["R", "R", "R"],
-["R", "R", "R"]];
+                ["R", "R", "R"],
+                ["R", "R", "R"]];
 
 let inputArray = [];
 let submitCount = 0;
