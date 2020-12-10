@@ -60,6 +60,36 @@ function moveCube(i) {
     endCube(i);
 }
 
+function rotate90(matrix) {
+    matrix = transpose(matrix);
+    matrix.map(function (array) {
+        array.reverse();
+    });
+    return matrix;
+}
+
+function transpose(matrix) {
+    let len = matrix.length;
+    let result = createEmptyMatrix(len);
+
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            let temp = matrix[i][j];
+            result[j][i] = temp;
+        }
+    }
+    return result;
+}
+
+function createEmptyMatrix(len) {
+    let result = new Array();
+    for(let i = 0; i < len; i++) {
+        result.push([]);
+    }
+    return result;
+}
+
+
 
 function mergeSingleQuote() {
     const inputText = input.value;
