@@ -98,6 +98,26 @@ function rotateTopCounter90() {
     cubeRight.unshift(tempArray1);
 }
 
+function rotateByD(i) {
+    if(inputArray[i] === "D") {
+        cubeBottom = rotate90(cubeBottom);
+        rotateBottom90();
+        renderCube("D");
+    }
+}
+
+function rotateBottom90() {
+    const tempArray1 = cubeFront.pop();
+    const tempArray2 = cubeLeft.pop();
+    const tempArray3 = cubeBack.pop();
+    const tempArray4 = cubeRight.pop();
+    cubeFront.push(tempArray2);
+    cubeLeft.push(tempArray3);
+    cubeBack.push(tempArray4);
+    cubeRight.push(tempArray1);
+}
+
+
 
 function rotate90(matrix) {
     matrix = transpose(matrix);
