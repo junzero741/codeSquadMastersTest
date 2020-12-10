@@ -7,6 +7,7 @@ const canvasTop = document.querySelector(".canvasTop"),
     input = document.getElementById("input"),
     button = document.getElementById("button");
 
+
 let cubeTop = [["B", "B", "B"],
                 ["B", "B", "B"],
                 ["B", "B", "B"]];
@@ -34,6 +35,8 @@ let cubeBottom = [["R", "R", "R"],
 let inputArray = [];
 let submitCount = 0;
 
+
+
 function drawInitCube() {
     canvasTop.innerHTML = `${cubeTop[0]} <br> ${cubeTop[1]} <br> ${cubeTop[2]} <br>`;
     canvasLeft.innerHTML = `${cubeLeft[0]} <br> ${cubeLeft[1]} <br> ${cubeLeft[2]} `;
@@ -42,6 +45,7 @@ function drawInitCube() {
     canvasBack.innerHTML = `${cubeBack[0]} <br> ${cubeBack[1]} <br> ${cubeBack[2]} `;
     canvasBottom.innerHTML = `${cubeBottom[0]} <br> ${cubeBottom[1]} <br> ${cubeBottom[2]} `;
 }
+
 
 
 function moveCube(i) {
@@ -60,15 +64,6 @@ function moveCube(i) {
     endCube(i);
 }
 
-function endCube(i) {
-    if(inputArray[i] === "Q") {
-        renderBye();
-    }
-}
-
-function renderBye() {
-    document.write(`조작갯수 : ${submitCount} <br> 이용해주셔서 감사합니다. 뚜뚜뚜.`);
-}
 
 
 function rotateByU(i) {
@@ -78,18 +73,6 @@ function rotateByU(i) {
         renderCube("U");
     }
 }
-
-function rotateTop90() {
-    const tempArray1 = cubeFront.shift();
-    const tempArray2 = cubeLeft.shift();
-    const tempArray3 = cubeBack.shift();
-    const tempArray4 = cubeRight.shift();
-    cubeFront.unshift(tempArray4);
-    cubeLeft.unshift(tempArray1);
-    cubeBack.unshift(tempArray2);
-    cubeRight.unshift(tempArray3);
-}
-
 function rotateByUQuote(i) {
     if(inputArray[i] === "U`") {
         cubeTop = rotateCounter90(cubeTop);
@@ -97,18 +80,6 @@ function rotateByUQuote(i) {
         renderCube("U`");
     } 
 }
-
-function rotateTopCounter90() {
-    const tempArray1 = cubeFront.shift();
-    const tempArray2 = cubeLeft.shift();
-    const tempArray3 = cubeBack.shift();
-    const tempArray4 = cubeRight.shift();
-    cubeFront.unshift(tempArray2);
-    cubeLeft.unshift(tempArray3);
-    cubeBack.unshift(tempArray4);
-    cubeRight.unshift(tempArray1);
-}
-
 function rotateByD(i) {
     if(inputArray[i] === "D") {
         cubeBottom = rotate90(cubeBottom);
@@ -116,19 +87,6 @@ function rotateByD(i) {
         renderCube("D");
     }
 }
-
-function rotateBottom90() {
-    const tempArray1 = cubeFront.pop();
-    const tempArray2 = cubeLeft.pop();
-    const tempArray3 = cubeBack.pop();
-    const tempArray4 = cubeRight.pop();
-    cubeFront.push(tempArray2);
-    cubeLeft.push(tempArray3);
-    cubeBack.push(tempArray4);
-    cubeRight.push(tempArray1);
-}
-
-
 function rotateByDQuote(i) {
     if(inputArray[i] === "D`") {
         cubeBottom = rotateCounter90(cubeBottom);
@@ -136,24 +94,120 @@ function rotateByDQuote(i) {
         renderCube("D`");
     }  
 }
-
-function rotateBottomCounter90() {
-    const tempArray1 = cubeFront.pop();
-    const tempArray2 = cubeLeft.pop();
-    const tempArray3 = cubeBack.pop();
-    const tempArray4 = cubeRight.pop();
-    cubeFront.push(tempArray4);
-    cubeLeft.push(tempArray1);
-    cubeBack.push(tempArray2);
-    cubeRight.push(tempArray3);
-}
-
 function rotateByL(i) {
     if(inputArray[i] === "L") {
         cubeLeft = rotate90(cubeLeft);
         rotateLeft90();
         renderCube("L");
     } 
+}
+function rotateByLQuote(i) {
+    if(inputArray[i] === "L`") {
+        cubeLeft = rotateCounter90(cubeLeft);
+        rotateLeftCounter90();
+        renderCube("L`");
+    }
+}
+function rotateByR(i) {
+    if(inputArray[i] === "R") {
+        cubeRight = rotate90(cubeRight);
+        rotateRight90();
+        renderCube("R");
+    }
+}
+function rotateByRQuote(i) {
+    if(inputArray[i] === "R`") {
+        cubeRight = rotateCounter90(cubeRight);
+        rotateRightCounter90();
+        renderCube("R`");
+    }
+}
+function rotateByF(i) {
+    if(inputArray[i] === "F")  {
+        cubeFront = rotate90(cubeFront);
+        rotateFront90();
+        renderCube("F");
+    }
+}
+function rotateByFQuote(i) {
+    if(inputArray[i] === "F`") {
+        cubeFront = rotateCounter90(cubeFront);
+        rotateFrontCounter90();
+        renderCube("F`");
+    }
+}
+function rotateByB(i) {
+    if(inputArray[i] === "B") {
+        cubeBack = rotate90(cubeBack);
+        rotateBack90();
+        renderCube("B");
+    }
+}
+function rotateByBQuote(i) {
+    if(inputArray[i] === "B`") {
+        cubeBack = rotateCounter90(cubeBack);
+        rotateBackCounter90();
+        renderCube("B`");
+    }
+}
+function endCube(i) {
+    if(inputArray[i] === "Q") {
+        renderBye();
+    }
+}
+
+
+
+function rotateTop90() {
+    // 배열 만들기
+    const tempArray1 = cubeFront.shift();
+    const tempArray2 = cubeLeft.shift();
+    const tempArray3 = cubeBack.shift();
+    const tempArray4 = cubeRight.shift();
+    // 배열 집어넣기
+    cubeFront.unshift(tempArray4);
+    cubeLeft.unshift(tempArray1);
+    cubeBack.unshift(tempArray2);
+    cubeRight.unshift(tempArray3);
+}
+
+function rotateTopCounter90() {
+    // 배열 만들기
+    const tempArray1 = cubeFront.shift();
+    const tempArray2 = cubeLeft.shift();
+    const tempArray3 = cubeBack.shift();
+    const tempArray4 = cubeRight.shift();
+    // 배열 집어넣기
+    cubeFront.unshift(tempArray2);
+    cubeLeft.unshift(tempArray3);
+    cubeBack.unshift(tempArray4);
+    cubeRight.unshift(tempArray1);
+}
+
+function rotateBottom90() {
+    // 배열 만들기
+    const tempArray1 = cubeFront.pop();
+    const tempArray2 = cubeLeft.pop();
+    const tempArray3 = cubeBack.pop();
+    const tempArray4 = cubeRight.pop();
+    // 배열 집어넣기
+    cubeFront.push(tempArray2);
+    cubeLeft.push(tempArray3);
+    cubeBack.push(tempArray4);
+    cubeRight.push(tempArray1);
+}
+
+function rotateBottomCounter90() {
+    // 배열 만들기
+    const tempArray1 = cubeFront.pop();
+    const tempArray2 = cubeLeft.pop();
+    const tempArray3 = cubeBack.pop();
+    const tempArray4 = cubeRight.pop();
+    // 배열 집어넣기
+    cubeFront.push(tempArray4);
+    cubeLeft.push(tempArray1);
+    cubeBack.push(tempArray2);
+    cubeRight.push(tempArray3);
 }
 
 function rotateLeft90() {
@@ -168,21 +222,12 @@ function rotateLeft90() {
         tempArrayBottom.push(cubeBottom[i].shift());
         tempArrayBack.unshift(cubeBack[i].pop());
     }
-    
     // 배열 집어넣기
     for(let i = 0; i < 3; i++) {
         cubeTop[i].unshift(tempArrayBack[i]);
         cubeFront[i].unshift(tempArrayTop[i]);
         cubeBottom[i].unshift(tempArrayFront[i]);
         cubeBack[i].push(tempArrayBottom.pop());
-    }
-}
-
-function rotateByLQuote(i) {
-    if(inputArray[i] === "L`") {
-        cubeLeft = rotateCounter90(cubeLeft);
-        rotateLeftCounter90();
-        renderCube("L`");
     }
 }
 
@@ -198,7 +243,6 @@ function rotateLeftCounter90() {
         tempArrayBottom.push(cubeBottom[i].shift());
         tempArrayBack.unshift(cubeBack[i].pop());
     }
-
     // 배열 집어넣기
    for(let i = 0; i < 3; i++) {
        cubeTop[i].unshift(tempArrayFront[i]);
@@ -206,15 +250,6 @@ function rotateLeftCounter90() {
        cubeBottom[i].unshift(tempArrayBack[i]);
        cubeBack[i].push(tempArrayTop.pop());
    }
-}
-
-
-function rotateByR(i) {
-    if(inputArray[i] === "R") {
-        cubeRight = rotate90(cubeRight);
-        rotateRight90();
-        renderCube("R");
-    }
 }
 
 function rotateRight90() {
@@ -229,21 +264,12 @@ function rotateRight90() {
         tempArrayBottom.push(cubeBottom[i].pop());
         tempArrayBack.unshift(cubeBack[i].shift());
     }
-
     // 배열 집어넣기
     for(let i = 0; i < 3; i++) {
         cubeTop[i].push(tempArrayFront[i]);
         cubeFront[i].push(tempArrayBottom[i]);
         cubeBottom[i].push(tempArrayBack[i]);
         cubeBack[i].unshift(tempArrayTop.pop());
-    }
-}
-
-function rotateByRQuote(i) {
-    if(inputArray[i] === "R`") {
-        cubeRight = rotateCounter90(cubeRight);
-        rotateRightCounter90();
-        renderCube("R`");
     }
 }
 
@@ -259,7 +285,6 @@ function rotateRightCounter90() {
         tempArrayBottom.push(cubeBottom[i].pop());
         tempArrayBack.unshift(cubeBack[i].shift());
     }
-
     // 배열 집어넣기
     for(let i = 0; i < 3; i++) {
         cubeTop[i].push(tempArrayBack[i]);
@@ -269,21 +294,12 @@ function rotateRightCounter90() {
   }
 }
 
-function rotateByF(i) {
-    if(inputArray[i] === "F")  {
-        cubeFront = rotate90(cubeFront);
-        rotateFront90();
-        renderCube("F");
-    }
-}
-
 function rotateFront90() {
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
     let tempArrayLeft = [];
     let tempArrayRight = [];
-
     for(let i = 0; i < 3; i++) {
         tempArrayTop.push(cubeTop[2].shift());
         tempArrayLeft.push(cubeLeft[i].pop());
@@ -299,29 +315,18 @@ function rotateFront90() {
     }
 }
 
-function rotateByFQuote(i) {
-    if(inputArray[i] === "F`") {
-        cubeFront = rotateCounter90(cubeFront);
-        rotateFrontCounter90();
-        renderCube("F`");
-    }
-}
-
-
 function rotateFrontCounter90() {
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
     let tempArrayLeft = [];
     let tempArrayRight = [];
-
     for(let i = 0; i < 3; i++) {
         tempArrayTop.push(cubeTop[2].pop());
         tempArrayLeft.push(cubeLeft[i].pop());
         tempArrayRight.push(cubeRight[i].shift());
         tempArrayBottom.push(cubeBottom[0].pop());
     }
-
     // 배열 집어넣기
     for(let i = 2; i >= 0; i--) {
        cubeTop[2].unshift(tempArrayRight[i]);
@@ -329,14 +334,6 @@ function rotateFrontCounter90() {
        cubeLeft[i].push(tempArrayTop[i]);
        cubeBottom[0].unshift(tempArrayLeft[i]);
    }
-}
-
-function rotateByB(i) {
-    if(inputArray[i] === "B") {
-        cubeBack = rotate90(cubeBack);
-        rotateBack90();
-        renderCube("B");
-    }
 }
 
 function rotateBack90() {
@@ -351,7 +348,6 @@ function rotateBack90() {
         tempArrayRight.push(cubeRight[i].pop());
         tempArrayBottom.push(cubeBottom[2].pop());
     }
- 
     //배열 집어넣기
     for(let i = 0; i < 3; i++) {
      cubeTop[0].push(tempArrayRight[i]);
@@ -360,14 +356,6 @@ function rotateBack90() {
      cubeBottom[2].push(tempArrayLeft[i]);
     }
  }
-
- function rotateByBQuote(i) {
-    if(inputArray[i] === "B`") {
-        cubeBack = rotateCounter90(cubeBack);
-        rotateBackCounter90();
-        renderCube("B`");
-    }
-}
 
  function rotateBackCounter90() {
     // 배열 만들기
@@ -381,14 +369,15 @@ function rotateBack90() {
         tempArrayRight.push(cubeRight[i].pop());
         tempArrayBottom.push(cubeBottom[2].shift());
     }
-
+    // 배열 집어넣기
     for(let i = 2; i >= 0; i--) {
        cubeTop[0].push(tempArrayLeft[i]);
        cubeLeft[i].unshift(tempArrayBottom[i]);
        cubeRight[i].push(tempArrayTop[i]);
        cubeBottom[2].push(tempArrayRight[i]);
-      }
+    }
 }
+
 
 
 function rotate90(matrix) {
@@ -411,7 +400,6 @@ function rotateCounter90(matrix) {
     return result;
 }
 
-
 function transpose(matrix) {
     let len = matrix.length;
     let result = createEmptyMatrix(len);
@@ -431,6 +419,12 @@ function createEmptyMatrix(len) {
         result.push([]);
     }
     return result;
+}
+
+
+
+function renderBye() {
+    document.write(`조작갯수 : ${submitCount} <br> 이용해주셔서 감사합니다. 뚜뚜뚜.`);
 }
 
 function renderCube(text) {
@@ -455,8 +449,6 @@ function renderCube(text) {
     } 
 }
 
-
-
 function mergeSingleQuote() {
     const inputText = input.value;
     inputArray = inputText.split("");
@@ -479,14 +471,10 @@ function checkInput() {
     submitCount += inputArray.length;
 }
 
-
-
-
 function handleEvent() {
     button.addEventListener("click", mergeSingleQuote);
     button.addEventListener("click", checkInput);
 }
-
 
 
 function init() {
