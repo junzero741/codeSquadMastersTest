@@ -31,7 +31,7 @@ let cubeBack = [["Y", "Y", "Y"],
 let cubeBottom = [["R", "R", "R"],
                 ["R", "R", "R"],
                 ["R", "R", "R"]];
-
+let clock = setInterval(countClock, 1000);
 let inputArray = [];
 let submitCount = 0;
 
@@ -437,19 +437,58 @@ function createEmptyMatrix(len) {
 }
 
 
+function completeCube() {
+    let answerCount = 0;
+    if(document.querySelector(".newCanvasTop")) {
+        const cubeArray = [cubeTop, cubeBottom, cubeLeft, cubeRight, cubeFront, cubeBack];
+        for(let i = 0; i < cubeArray.length; i++) {
+           answerCount += checkCube(cubeArray[i]);
+        }
+    }
+    if(answerCount === 48) {
+        renderCompleteBye();
+    }
+}
+
+function checkCube(matrix) {
+    let corretCount = 0;
+    flatArray = [];
+    for(let i = 0; i < matrix.length; i++) {
+        for(let j = 0; j < matrix.length; j++) {
+            flatArray.push(matrix[i][j]);
+        }
+    }
+    for(let i = 0; i < flatArray.length; i++) {
+        if(flatArray[i] === flatArray[i+1]) {
+            corretCount++;
+        }  
+    }
+    return corretCount; // 한 면의 블럭들(9개)의 값이 모두 일치하면 8 반환.
+}
+
+
+function renderCompleteBye() {
+    clearInterval(clock);
+    document.write(`경과시간 : ${
+        minute < 10 ? `0${minute}` : minute} : ${
+        second < 10 ? `0${second}` : second} <br> 
+        조작갯수 : ${submitCount} <br>
+        🎺모든 면을 맞추셨습니다 축하합니다!!🎺`);
+}
 
 function renderBye() {
+    clearInterval(clock);
     document.write(`경과시간 : ${
-            minute < 10 ? `0${minute}` : minute} : ${
-            second < 10 ? `0${second}` : second} <br> 
-            조작갯수 : ${submitCount} <br> 이용해주셔서 감사합니다. 뚜뚜뚜.`);
+        minute < 10 ? `0${minute}` : minute} : ${
+        second < 10 ? `0${second}` : second} <br> 
+        조작갯수 : ${submitCount} <br> 이용해주셔서 감사합니다. 뚜뚜뚜.`);
 }
 
 function renderCube(text) {
     const newCubeTop = document.createElement("div") , newCubeFront = document.createElement("div");
     const newCubeLeft = document.createElement("div"), newCubeRight = document.createElement("div");
     const newCubeBack = document.createElement("div"), newCubeBottom = document.createElement("div");
-    newCubeTop.className = "canvasTop";
+    newCubeTop.className = "newCanvasTop";
     newCubeFront.className = "canvasFront";
     newCubeLeft.className = "canvasLeft";
     newCubeRight.className = "canvasRight";
@@ -506,6 +545,7 @@ function scrambleCube() {
 function handleEvent() {
     button.addEventListener("click", mergeSingleQuote);
     button.addEventListener("click", checkInput);
+    button.addEventListener("click", completeCube);
     scrambleButton.addEventListener("click", scrambleCube);
 }
 
@@ -513,7 +553,7 @@ function handleEvent() {
 function init() {
     drawInitCube();
     handleEvent();
-    setInterval(countClock, 1000);
+    
 }
 
 

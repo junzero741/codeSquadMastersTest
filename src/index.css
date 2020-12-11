@@ -32,3 +32,8 @@
     position : sticky;
     top : 0;
 }
+
+.newCanvasTop {
+    padding : 20px;
+    margin-left : 100px;
+}
