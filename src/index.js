@@ -35,6 +35,23 @@ let cubeBottom = [["R", "R", "R"],
 let inputArray = [];
 let submitCount = 0;
 
+let second = 0;
+let minute = 0;
+
+
+function countClock() {
+    if(second === 59) {
+        second = 0;
+        minute++;
+    } else {
+        second++;
+    }
+    console.log(`${
+        minute < 10 ? `0${minute}` : minute} : ${
+            second < 10 ? `0${second}` : second}`
+    );
+}
+
 function drawInitCube() {
     canvasTop.innerHTML = `${cubeTop[0]} <br> ${cubeTop[1]} <br> ${cubeTop[2]} <br>`;
     canvasLeft.innerHTML = `${cubeLeft[0]} <br> ${cubeLeft[1]} <br> ${cubeLeft[2]} `;
@@ -422,7 +439,10 @@ function createEmptyMatrix(len) {
 
 
 function renderBye() {
-    document.write(`조작갯수 : ${submitCount} <br> 이용해주셔서 감사합니다. 뚜뚜뚜.`);
+    document.write(`경과시간 : ${
+            minute < 10 ? `0${minute}` : minute} : ${
+            second < 10 ? `0${second}` : second} <br> 
+            조작갯수 : ${submitCount} <br> 이용해주셔서 감사합니다. 뚜뚜뚜.`);
 }
 
 function renderCube(text) {
@@ -493,6 +513,7 @@ function handleEvent() {
 function init() {
     drawInitCube();
     handleEvent();
+    setInterval(countClock, 1000);
 }
 
 
