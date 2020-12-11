@@ -28,7 +28,8 @@ https://codepen.io/junzero741/pen/MWjjzdx
 
  ## handleEvent
  * 버튼을 클릭할 때마다 이벤트를 발생시키는 함수를 모아두었다.
- * 버튼을 클릭하면 mergeSingleQuote 와 checkInput이 실행된다.
+ * 버튼을 클릭하면 mergeSingleQuote 와 checkInput, completeCube, scrambleCube를 실행한다.
+ 
 
  ## moveCube(i)
  * checkInput 함수에 의해 실행되는 함수.
@@ -39,13 +40,34 @@ https://codepen.io/junzero741/pen/MWjjzdx
  * inputArray의 원소 i 중에 "Q"가 있으면 renderBye 함수를 실행시킨다.
 
  ## renderBye
- * 화면에 큐브 회전 명령 횟수인 submitCount와 작별인사를 출력하고, 큐브 게임을 종료시킨다.
+ * 화면에 큐브 회전 명령 횟수인 submitCount와 경과시간, 작별인사를 출력하고, 큐브 게임을 종료시킨다.
 
  ## renderCube(text)
  * 각 층별 회전 함수에 의해 실행되는 함수.
  * 큐브가 회전할 때마다 화면에 새로운 큐브를 렌더링하는 역할을 한다.
  * 렌더링된 함수의 위엔 입력된 text를 함께 출력한다.
 
+ ## countClock 
+ * 게임 시간을 1초 단위로 기록해주는 함수.
+
+ ## completeCube
+ * HTML 화면에 새로 그려진 큐브가 있으면 큐브의 각 면을 매개변수로 갖는 checkCube 함수를 실행시킨다.
+ * checkCube 함수로부터 반환받은 숫자 8을 answerCount에 더한다.
+ * answerCount가 48이 되면 큐브의 모든 면이 맞춰졌다는 의미이므로, renderCompleteBye()를 실행한다.
+
+ ## checkCube(matrix)
+ * 인자로 받은 2차원 배열을 1차원 배열로 flat화 시켜준다.
+ * 1차원 배열의 각 원소 값들이 모두 같은지 검사, 같으면 correctCount의 값을 1 증가시킨다.
+ * 만약 한 면의 블럭들(9개)의 값이 모두 일치하면 8이 된 corretCount을 반환한다.
+
+ ## renderCompleteBye
+ * 화면에 큐브 회전 명령 횟수인 submitCount와 경과시간, 축하인사를 출력하고, 큐브 게임을 종료시킨다.
+
+ ## scrambleCube
+ * rotateArray배열에 큐브 회전 명령 함수들을 넣는다.
+ * 0에서 10 사이의 랜덤 숫자를 randomNum 변수에 저장한다.
+ * rotateArray 배열을 랜덤정렬하고, 랜덤정렬된 rotateArray를 randomNum 만큼 실행한다.
+ * 화면에 초기 큐브를 그리는 drawInitCube() 함수를 실행한다.
 
    </br></br> </br></br>
  # 큐브 단면 회전 함수
