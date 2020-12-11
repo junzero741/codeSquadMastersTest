@@ -5,8 +5,8 @@ const canvasTop = document.querySelector(".canvasTop"),
     canvasBack = document.querySelector(".canvasBack"),
     canvasBottom = document.querySelector(".canvasBottom"),
     input = document.getElementById("input"),
-    button = document.getElementById("button");
-
+    button = document.getElementById("button"),
+    scrambleButton = document.getElementById("scramble");
 
 let cubeTop = [["B", "B", "B"],
                 ["B", "B", "B"],
@@ -34,8 +34,6 @@ let cubeBottom = [["R", "R", "R"],
 
 let inputArray = [];
 let submitCount = 0;
-
-
 
 function drawInitCube() {
     canvasTop.innerHTML = `${cubeTop[0]} <br> ${cubeTop[1]} <br> ${cubeTop[2]} <br>`;
@@ -471,9 +469,24 @@ function checkInput() {
     submitCount += inputArray.length;
 }
 
+function scrambleCube() {
+    let rotateArray = [rotateTop90, rotateRight90, rotateLeft90, rotateFront90, rotateBottom90, rotateBack90];
+    let randomNum = Math.random() * 10;
+
+    rotateArray.sort(function () {
+        return Math.random() - Math.random();
+    });
+
+    for(let i = 0; i < randomNum; i++) {
+        rotateArray.forEach(element => element());
+    }
+    drawInitCube();
+}
+
 function handleEvent() {
     button.addEventListener("click", mergeSingleQuote);
     button.addEventListener("click", checkInput);
+    scrambleButton.addEventListener("click", scrambleCube);
 }
 
 
