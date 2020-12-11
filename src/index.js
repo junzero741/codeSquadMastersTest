@@ -38,7 +38,6 @@ let submitCount = 0;
 let second = 0;
 let minute = 0;
 
-
 function countClock() {
     if(second === 59) {
         second = 0;
@@ -163,63 +162,54 @@ function endCube(i) {
 
 function rotateTop90() {
     cubeTop = rotate90(cubeTop);
-    // 배열 만들기
-    const tempArray1 = cubeFront.shift();
-    const tempArray2 = cubeLeft.shift();
-    const tempArray3 = cubeBack.shift();
-    const tempArray4 = cubeRight.shift();
-    // 배열 집어넣기
-    cubeFront.unshift(tempArray4);
-    cubeLeft.unshift(tempArray1);
-    cubeBack.unshift(tempArray2);
-    cubeRight.unshift(tempArray3);
+    const tempArrayFront= cubeFront.shift();
+    const tempArrayLeft = cubeLeft.shift();
+    const tempArrayBack = cubeBack.shift();
+    const tempArrayRight = cubeRight.shift();
+    cubeFront.unshift(tempArrayRight);
+    cubeLeft.unshift(tempArrayFront);
+    cubeBack.unshift(tempArrayLeft);
+    cubeRight.unshift(tempArrayBack);
 }
 
 function rotateTopCounter90() {
     cubeTop = rotateCounter90(cubeTop);
-    // 배열 만들기
-    const tempArray1 = cubeFront.shift();
-    const tempArray2 = cubeLeft.shift();
-    const tempArray3 = cubeBack.shift();
-    const tempArray4 = cubeRight.shift();
-    // 배열 집어넣기
-    cubeFront.unshift(tempArray2);
-    cubeLeft.unshift(tempArray3);
-    cubeBack.unshift(tempArray4);
-    cubeRight.unshift(tempArray1);
+    const tempArrayFront= cubeFront.shift();
+    const tempArrayLeft = cubeLeft.shift();
+    const tempArrayBack = cubeBack.shift();
+    const tempArrayRight = cubeRight.shift();
+    cubeFront.unshift(tempArrayLeft);
+    cubeLeft.unshift(tempArrayBack);
+    cubeBack.unshift(tempArrayRight);
+    cubeRight.unshift(tempArrayFront);
 }
 
 function rotateBottom90() {
     cubeBottom = rotate90(cubeBottom);
-    // 배열 만들기
-    const tempArray1 = cubeFront.pop();
-    const tempArray2 = cubeLeft.pop();
-    const tempArray3 = cubeBack.pop();
-    const tempArray4 = cubeRight.pop();
-    // 배열 집어넣기
-    cubeFront.push(tempArray2);
-    cubeLeft.push(tempArray3);
-    cubeBack.push(tempArray4);
-    cubeRight.push(tempArray1);
+    const tempArrayFront= cubeFront.pop();
+    const tempArrayLeft = cubeLeft.pop();
+    const tempArrayBack = cubeBack.pop();
+    const tempArrayRight = cubeRight.pop();
+    cubeFront.push(tempArrayLeft);
+    cubeLeft.push(tempArrayBack);
+    cubeBack.push(tempArrayRight);
+    cubeRight.push(tempArrayFront);
 }
 
 function rotateBottomCounter90() {
     cubeBottom = rotateCounter90(cubeBottom);
-    // 배열 만들기
-    const tempArray1 = cubeFront.pop();
-    const tempArray2 = cubeLeft.pop();
-    const tempArray3 = cubeBack.pop();
-    const tempArray4 = cubeRight.pop();
-    // 배열 집어넣기
-    cubeFront.push(tempArray4);
-    cubeLeft.push(tempArray1);
-    cubeBack.push(tempArray2);
-    cubeRight.push(tempArray3);
+    const tempArrayFront= cubeFront.pop();
+    const tempArrayLeft = cubeLeft.pop();
+    const tempArrayBack = cubeBack.pop();
+    const tempArrayRight = cubeRight.pop();
+    cubeFront.push(tempArrayRight);
+    cubeLeft.push(tempArrayFront);
+    cubeBack.push(tempArrayLeft);
+    cubeRight.push(tempArrayBack);
 }
 
 function rotateLeft90() {
     cubeLeft = rotate90(cubeLeft);
-    // 배열 만들기
     let tempArrayTop = [];
     let tempArrayFront = [];
     let tempArrayBottom = [];
@@ -230,7 +220,6 @@ function rotateLeft90() {
         tempArrayBottom.push(cubeBottom[i].shift());
         tempArrayBack.unshift(cubeBack[i].pop());
     }
-    // 배열 집어넣기
     for(let i = 0; i < 3; i++) {
         cubeTop[i].unshift(tempArrayBack[i]);
         cubeFront[i].unshift(tempArrayTop[i]);
@@ -241,7 +230,6 @@ function rotateLeft90() {
 
 function rotateLeftCounter90() {
     cubeLeft = rotateCounter90(cubeLeft);
-    // 배열 만들기
     let tempArrayTop = [];
     let tempArrayFront = [];
     let tempArrayBottom = [];
@@ -252,7 +240,6 @@ function rotateLeftCounter90() {
         tempArrayBottom.push(cubeBottom[i].shift());
         tempArrayBack.unshift(cubeBack[i].pop());
     }
-    // 배열 집어넣기
    for(let i = 0; i < 3; i++) {
        cubeTop[i].unshift(tempArrayFront[i]);
        cubeFront[i].unshift(tempArrayBottom[i]);
@@ -263,7 +250,6 @@ function rotateLeftCounter90() {
 
 function rotateRight90() {
     cubeRight = rotate90(cubeRight);
-    // 배열 만들기
     let tempArrayTop = [];
     let tempArrayFront = [];
     let tempArrayBottom = [];
@@ -274,7 +260,6 @@ function rotateRight90() {
         tempArrayBottom.push(cubeBottom[i].pop());
         tempArrayBack.unshift(cubeBack[i].shift());
     }
-    // 배열 집어넣기
     for(let i = 0; i < 3; i++) {
         cubeTop[i].push(tempArrayFront[i]);
         cubeFront[i].push(tempArrayBottom[i]);
@@ -285,7 +270,6 @@ function rotateRight90() {
 
 function rotateRightCounter90() {
     cubeRight = rotateCounter90(cubeRight);
-    // 배열 만들기
     let tempArrayTop = [];
     let tempArrayFront = [];
     let tempArrayBottom = [];
@@ -296,7 +280,6 @@ function rotateRightCounter90() {
         tempArrayBottom.push(cubeBottom[i].pop());
         tempArrayBack.unshift(cubeBack[i].shift());
     }
-    // 배열 집어넣기
     for(let i = 0; i < 3; i++) {
         cubeTop[i].push(tempArrayBack[i]);
         cubeFront[i].push(tempArrayTop[i]);
@@ -307,7 +290,6 @@ function rotateRightCounter90() {
 
 function rotateFront90() {
     cubeFront = rotate90(cubeFront);
-    // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
     let tempArrayLeft = [];
@@ -318,7 +300,6 @@ function rotateFront90() {
         tempArrayRight.push(cubeRight[i].shift());
         tempArrayBottom.push(cubeBottom[0].shift());
     }
-    // 배열 집어넣기
     for(let i = 0; i < 3; i++) {
         cubeTop[2].unshift(tempArrayLeft[i]);
         cubeRight[i].unshift(tempArrayTop[i]);
@@ -329,7 +310,6 @@ function rotateFront90() {
 
 function rotateFrontCounter90() {
     cubeFront = rotateCounter90(cubeFront);
-    // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
     let tempArrayLeft = [];
@@ -340,7 +320,6 @@ function rotateFrontCounter90() {
         tempArrayRight.push(cubeRight[i].shift());
         tempArrayBottom.push(cubeBottom[0].pop());
     }
-    // 배열 집어넣기
     for(let i = 2; i >= 0; i--) {
        cubeTop[2].unshift(tempArrayRight[i]);
        cubeRight[i].unshift(tempArrayBottom[i]);
@@ -351,7 +330,6 @@ function rotateFrontCounter90() {
 
 function rotateBack90() {
     cubeBack = rotate90(cubeBack);
-    // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
     let tempArrayLeft = [];
@@ -362,7 +340,6 @@ function rotateBack90() {
         tempArrayRight.push(cubeRight[i].pop());
         tempArrayBottom.push(cubeBottom[2].pop());
     }
-    //배열 집어넣기
     for(let i = 0; i < 3; i++) {
      cubeTop[0].push(tempArrayRight[i]);
      cubeLeft[i].unshift(tempArrayTop[i]);
@@ -373,7 +350,6 @@ function rotateBack90() {
 
  function rotateBackCounter90() {
     cubeBack = rotateCounter90(cubeBack);
-    // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
     let tempArrayLeft = [];
@@ -384,7 +360,6 @@ function rotateBack90() {
         tempArrayRight.push(cubeRight[i].pop());
         tempArrayBottom.push(cubeBottom[2].shift());
     }
-    // 배열 집어넣기
     for(let i = 2; i >= 0; i--) {
        cubeTop[0].push(tempArrayLeft[i]);
        cubeLeft[i].unshift(tempArrayBottom[i]);
