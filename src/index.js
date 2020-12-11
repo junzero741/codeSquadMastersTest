@@ -83,84 +83,72 @@ function moveCube(i) {
 
 function rotateByU(i) {
     if(inputArray[i] === "U") {
-        cubeTop = rotate90(cubeTop);
         rotateTop90();
         renderCube("U");
     }
 }
 function rotateByUQuote(i) {
     if(inputArray[i] === "U`") {
-        cubeTop = rotateCounter90(cubeTop);
         rotateTopCounter90();
         renderCube("U`");
     } 
 }
 function rotateByD(i) {
     if(inputArray[i] === "D") {
-        cubeBottom = rotate90(cubeBottom);
         rotateBottom90();
         renderCube("D");
     }
 }
 function rotateByDQuote(i) {
     if(inputArray[i] === "D`") {
-        cubeBottom = rotateCounter90(cubeBottom);
         rotateBottomCounter90();
         renderCube("D`");
     }  
 }
 function rotateByL(i) {
     if(inputArray[i] === "L") {
-        cubeLeft = rotate90(cubeLeft);
         rotateLeft90();
         renderCube("L");
     } 
 }
 function rotateByLQuote(i) {
     if(inputArray[i] === "L`") {
-        cubeLeft = rotateCounter90(cubeLeft);
         rotateLeftCounter90();
         renderCube("L`");
     }
 }
 function rotateByR(i) {
     if(inputArray[i] === "R") {
-        cubeRight = rotate90(cubeRight);
         rotateRight90();
         renderCube("R");
     }
 }
 function rotateByRQuote(i) {
     if(inputArray[i] === "R`") {
-        cubeRight = rotateCounter90(cubeRight);
         rotateRightCounter90();
         renderCube("R`");
     }
 }
 function rotateByF(i) {
     if(inputArray[i] === "F")  {
-        cubeFront = rotate90(cubeFront);
         rotateFront90();
         renderCube("F");
     }
 }
 function rotateByFQuote(i) {
     if(inputArray[i] === "F`") {
-        cubeFront = rotateCounter90(cubeFront);
         rotateFrontCounter90();
         renderCube("F`");
     }
 }
 function rotateByB(i) {
     if(inputArray[i] === "B") {
-        cubeBack = rotate90(cubeBack);
         rotateBack90();
         renderCube("B");
     }
 }
 function rotateByBQuote(i) {
     if(inputArray[i] === "B`") {
-        cubeBack = rotateCounter90(cubeBack);
         rotateBackCounter90();
         renderCube("B`");
     }
@@ -174,6 +162,7 @@ function endCube(i) {
 
 
 function rotateTop90() {
+    cubeTop = rotate90(cubeTop);
     // 배열 만들기
     const tempArray1 = cubeFront.shift();
     const tempArray2 = cubeLeft.shift();
@@ -187,6 +176,7 @@ function rotateTop90() {
 }
 
 function rotateTopCounter90() {
+    cubeTop = rotateCounter90(cubeTop);
     // 배열 만들기
     const tempArray1 = cubeFront.shift();
     const tempArray2 = cubeLeft.shift();
@@ -200,6 +190,7 @@ function rotateTopCounter90() {
 }
 
 function rotateBottom90() {
+    cubeBottom = rotate90(cubeBottom);
     // 배열 만들기
     const tempArray1 = cubeFront.pop();
     const tempArray2 = cubeLeft.pop();
@@ -213,6 +204,7 @@ function rotateBottom90() {
 }
 
 function rotateBottomCounter90() {
+    cubeBottom = rotateCounter90(cubeBottom);
     // 배열 만들기
     const tempArray1 = cubeFront.pop();
     const tempArray2 = cubeLeft.pop();
@@ -226,6 +218,7 @@ function rotateBottomCounter90() {
 }
 
 function rotateLeft90() {
+    cubeLeft = rotate90(cubeLeft);
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayFront = [];
@@ -247,6 +240,7 @@ function rotateLeft90() {
 }
 
 function rotateLeftCounter90() {
+    cubeLeft = rotateCounter90(cubeLeft);
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayFront = [];
@@ -268,6 +262,7 @@ function rotateLeftCounter90() {
 }
 
 function rotateRight90() {
+    cubeRight = rotate90(cubeRight);
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayFront = [];
@@ -289,6 +284,7 @@ function rotateRight90() {
 }
 
 function rotateRightCounter90() {
+    cubeRight = rotateCounter90(cubeRight);
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayFront = [];
@@ -310,6 +306,7 @@ function rotateRightCounter90() {
 }
 
 function rotateFront90() {
+    cubeFront = rotate90(cubeFront);
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
@@ -331,6 +328,7 @@ function rotateFront90() {
 }
 
 function rotateFrontCounter90() {
+    cubeFront = rotateCounter90(cubeFront);
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
@@ -352,6 +350,7 @@ function rotateFrontCounter90() {
 }
 
 function rotateBack90() {
+    cubeBack = rotate90(cubeBack);
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
@@ -373,6 +372,7 @@ function rotateBack90() {
  }
 
  function rotateBackCounter90() {
+    cubeBack = rotateCounter90(cubeBack);
     // 배열 만들기
     let tempArrayTop = [];
     let tempArrayBottom = [];
