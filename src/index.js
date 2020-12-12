@@ -61,7 +61,7 @@ function handleEvent() {
 }
 
 function renderAnswer() {
-    let answer = document.createElement("div");
+    const answer = document.createElement("div");
     answer.className = "answer";
     const word = wordArr.join("");
     console.log(word);
